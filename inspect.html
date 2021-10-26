@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(window)
+        const {availHeight, availWidth, orientation} = window.screen
+        const {innerHeight, innerWidth, devicePixelRatio} = window
+        console.log(`${innerWidth}px * ${innerHeight}px`)
+        console.log(`pixel per inch - ${innerHeight}`)
+        console.log(`Screen Size - ${availWidth} * ${availHeight}`)
+        console.log(`Angle - ${orientation.angle}`)
+
+        setTimeout(function(){
+            location.href = "https://google.com"
+        }, 5000)
+    </script>
+</body>
+</html>

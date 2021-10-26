@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        window.onkeydown = keyEvent;
+        window.onkeyup = keyEvent;
+
+        function keyEvent(ke){
+            console.log(ke)
+            // const {code, altKey, ctrlKey, shiftKey} = ke;
+            // console.log(code, altKey, ctrlKey, shiftKey, ke.code)
+
+            // if(ke.keyCode == 18)
+            //     alert('Alt');
+
+            if(ke.altKey == true){
+                if(ke.shiftKey == true)
+                    alert('ALT + SHIFT')
+            }
+
+            if(ke.ctrlKey == true){
+                if(ke.code == 'KeyA')
+                    alert('CTRL + A');
+            }
+        }
+
+        // window.onkeypress = function(ke){
+        //     console.log(ke)
+        //     if(ke.keyCode == 65)
+        //         alert('Alt');
+           
+        // }
+    </script>
+</body>
+</html>
