@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XHR - XML HTTP Request</title>
+</head>
+<body>
+    <input type='text' id='inp'><br><br>
+    <button id=search>Search</button><br><br>
+    
+    <ul id='res'>  </ul>
+
+    <script>
+        const data = null;
+
+        const xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+
+        const search = document.getElementById('search')
+        const res = document.getElementById('res');
+        const inp = document.getElementById('inp')
+        window.onload = function(){
+            inp.focus();
+        }
+
+        search.onclick = function(){
+            xhr.open("GET", "https://imdb8.p.rapidapi.com/auto-complete?q="+inp.value);
+            xhr.setRequestHeader("x-rapidapi-host", "imdb8.p.rapidapi.com");
+            xhr.setRequestHeader("x-rapidapi-key", "74e9a8130emshe9a017494aba03cp15b47djsn7d6cdf23cacc");
+
+            xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === this.DONE) {
+                console.log(typeof JSON.parse(this.response));
+                const obj = JSON.parse(this.response);
+                // console.log(obj[Object.keys(obj)[0]])
+                obj["d"].forEach(element => {
+                    // const it = document.createElement('li')
+                    // it.innerHTML = `<a href="${element.link}">${element.title}</a><br>`
+                    // res.append(it);
+                    console.log(element["i"], element["l"])
+                })
+            }
+            });
+
+            xhr.send(data);
+        }
+
+    </script>
+</body>
+</html>

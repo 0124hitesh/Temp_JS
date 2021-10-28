@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+</head>
+<body>
+    <input type='text' id='inp'><br><br>
+    <button id=search>Search</button><br><br>
+    
+    <ul id='res'>  </ul>
+
+    <script>
+        const search = document.getElementById('search')
+        const res = document.getElementById('res');
+        const inp = document.getElementById('inp')
+        window.onload = function(){
+            inp.focus();
+        }
+
+        // search.onclick = function(){
+        //     fetch("https://imdb8.p.rapidapi.com/auto-complete?q=" + window.encodeURI(inp.value), {
+        //             "method": "GET",
+        //             "headers": {
+        //                 "x-rapidapi-host": "imdb8.p.rapidapi.com",
+        //                 "x-rapidapi-key": "74e9a8130emshe9a017494aba03cp15b47djsn7d6cdf23cacc"
+        //             }
+        //         }).then(response => response.json())
+        //         .then(response => {
+        //             console.log(response);
+        //         })
+        //         .catch(err => {
+        //             console.error(err);
+        //         });
+        // }
+
+        search.onclick = function(){
+            getData().then((res) =>{
+                console.log(res["d"])
+            }).catch((err) =>{
+                console.log(err)
+            })
+        }
+
+        async function getData(){
+            const res = await fetch("https://imdb8.p.rapidapi.com/auto-complete?q=" + window.encodeURI(inp.value), {
+                    "method": "GET",
+                    "headers": {
+                        "x-rapidapi-host": "imdb8.p.rapidapi.com",
+                        "x-rapidapi-key": "74e9a8130emshe9a017494aba03cp15b47djsn7d6cdf23cacc"
+                    }
+                })
+
+                return res.json()
+        }
+    </script>
+</body>
+</html>
