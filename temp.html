@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <audio controls id='a' autoplay muted>
+    <source src='./Audio/1.mp3'>
+    <source src='./Audio/2.mp3'>
+    
+  </audio>
+
+  <button id='clk'>Click</button>
+
+  <script>
+    const a = document.getElementById('a')
+
+    a.addEventListener('ended')
+    // function n(){
+    //   if(a.duration === a.currentTime){
+    //     a.src = './Audio/2.mp3'
+    //     a.play()
+    //   }
+    // }
+
+    // setInterval(n, 1000)
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio 2</title>
+</head>
+<body>
+    <ul>
+        <li>a</li>
+        <li>b</li>
+    </ul>
+    <button id='pl'>Play</button>
+    <button id='st'>Stop</button>
+    
+    <script>
+        const playlist = [
+            {name : 'a', src='https://archive.org/download/78_a-song-of-old-hawaii_dorothy-lamour-dick-mcintire-and-his-harmony-hawaiians-del-lyo_gbia0020181/06%20-%20A%20Song%20of%20Old%20Hawaii%20-%20Dorothy%20Lamour%20-%20Dick%20McIntire%20And%20His%20Harmony%20Hawaiians-restored.flac'},
+            {name : 'b', src='https://archive.org/download/78_a-song-of-old-hawaii_dorothy-lamour-dick-mcintire-and-his-harmony-hawaiians-del-lyo_gbia0020181/_78_a-song-of-old-hawaii_dorothy-lamour-dick-mcintire-and-his-harmony-hawaiians-gordon_gbia0020181f_01_3.8_ET_EQ.flac'}
+        ];
+
+        const ap = document.createElement('audio');
+        ap.oncanplaythrough = function(e){
+            console.log(e)
+        }
+
+        playlist.forEach(())
+    </script>
+</body>
+</html>

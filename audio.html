@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <audio controls src='https://archive.org/download/78_a-song-of-old-hawaii_dorothy-lamour-dick-mcintire-and-his-harmony-hawaiians-del-lyo_gbia0020181/05%20-%20The%20One%20Rose%20%28That%27s%20Left%20In%20My%20Heart%29%20-%20Dorothy%20Lamour-restored.flac'>
+    </audio> -->
+
+    <audio controls >
+        <source src='https://archive.org/download/78_a-song-of-old-hawaii_dorothy-lamour-dick-mcintire-and-his-harmony-hawaiians-del-lyo_gbia0020181/06%20-%20A%20Song%20of%20Old%20Hawaii%20-%20Dorothy%20Lamour%20-%20Dick%20McIntire%20And%20His%20Harmony%20Hawaiians-restored.flac'>
+        <source src='https://archive.org/download/78_a-song-of-old-hawaii_dorothy-lamour-dick-mcintire-and-his-harmony-hawaiians-del-lyo_gbia0020181/_78_a-song-of-old-hawaii_dorothy-lamour-dick-mcintire-and-his-harmony-hawaiians-gordon_gbia0020181f_01_3.8_ET_EQ.flac'>
+    </audio>
+    <br><br>
+    <button id='pl'>Play</button>
+    <button id='st'>Stop</button>
+
+    <script>
+        const ap = document.createElement('audio');
+        ap.oncanplaythrough = function(e){
+            console.log(e)
+        }
+
+        document.getElementById('pl').onclick = function(){
+            ap.src = 'https://archive.org/download/78_a-song-of-old-hawaii_dorothy-lamour-dick-mcintire-and-his-harmony-hawaiians-del-lyo_gbia0020181/06%20-%20A%20Song%20of%20Old%20Hawaii%20-%20Dorothy%20Lamour%20-%20Dick%20McIntire%20And%20His%20Harmony%20Hawaiians-restored.flac'
+            ap.play()
+        }
+
+        document.getElementById('st').onclick = function(){
+            ap.pause()
+        }
+    </script>
+</body>
+</html>
