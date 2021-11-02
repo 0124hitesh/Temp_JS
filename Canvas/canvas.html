@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #can{
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id='can' width=800 height=800 ></canvas>
+
+    </canvas>
+
+    <script>
+        window.onload = function(){
+            const can = document.getElementById('can');
+            const ctx = can.getContext('2d')
+            window.context = ctx
+
+            ctx.fillStyle = '#FF0000'
+            // x-position, y-position, width, height
+            ctx.fillRect(10, 10, 100, 50)
+
+            ctx.lineWidth = 2
+            ctx.strokeRect(11, 11, 11, 52)
+
+            ctx.beginPath()
+            // x, y, radius
+            ctx.arc(200, 200, 50, 0, Math.PI*2)
+            // ctx.arc(200, 200, 50, 1000, Math.PI*2)
+            ctx.stroke()
+            ctx.fill()
+            ctx.closePath()
+
+
+            // make lines
+            ctx.beginPath()
+            ctx.moveTo(300, 300)
+            ctx.lineTo(300, 100)
+            ctx.lineTo(500, 100)
+            ctx.lineTo(500, 300)
+            ctx.lineTo(300, 300)
+            ctx.stroke()
+            // ctx.fill()
+            ctx.closePath()
+
+            ctx.fillStyle = '#00FF00'
+            ctx.lineWidth = 5
+            ctx.lineJoin = 'bevel'
+            ctx.font = '40pt "Comic Sans"'
+            ctx.textAlign = 'center'
+            ctx.strokeText('Hello World', 200, 400)
+            ctx.fillText('Hello', 500, 400)
+            ctx.lineWidth = 3
+            ctx.fillText('Hello', 650, 400)
+            ctx.strokeText('Hello', 650, 250);
+
+        }
+
+    </script>
+</body>
+</html>
