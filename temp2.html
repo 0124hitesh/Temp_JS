@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #can{
+          border: 2px solid black;
+        }
+      </style>
+</head>
+<body>
+    <canvas width=500 height=500 id='can'></canvas><br>
+
+    <script>
+        const can = document.getElementById('can');
+        const ctx = can.getContext('2d')
+
+        var x = 0;
+        var y = 0;
+        var md = false;
+        can.addEventListener('mousedown', (e)=>{
+          x = e.pageX;
+          y = e.pageY;
+          md = true;
+          // ctx.beginPath();
+          // ctx.moveTo(e.pageX, e.pageY);
+        })
+
+        can.addEventListener('mouseup', (e) => {
+          md = false;
+        })
+
+        can.addEventListener('mousemove', (e)=>{
+          if(md){
+            ctx.clearRect(0, 0, can.width, can.height);
+            ctx.beginPath();
+            ctx.moveTo(x, y)
+            ctx.lineTo(e.pageX, e.pageY);
+            ctx.stroke();
+          }
+        })
+    </script>
+</body>
+</html>

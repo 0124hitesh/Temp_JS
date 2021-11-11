@@ -5,28 +5,83 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    #can{
+      border: 2px solid black;
+    }
+  </style>
 </head>
 <body>
-  <audio controls id='a' autoplay muted>
-    <source src='./Audio/1.mp3'>
-    <source src='./Audio/2.mp3'>
-    
-  </audio>
+  <canvas width=500 height=500 id='can'></canvas><br>
 
-  <button id='clk'>Click</button>
+  <label for="lineWidth">Line Width</label>
+  <input type="range" name="lineWidth" id="lineWidth" min="1" max="10" value="3">
 
   <script>
-    const a = document.getElementById('a')
+    const can = document.getElementById('can');
+    const ctx = can.getContext('2d')
 
-    a.addEventListener('ended')
-    // function n(){
-    //   if(a.duration === a.currentTime){
-    //     a.src = './Audio/2.mp3'
-    //     a.play()
-    //   }
-    // }
+    var xPos = 0;
+    var yPos = 0;
+    var isLine = true;
 
-    // setInterval(n, 1000)
-  </script>
+    const lw = document.getElementById('lineWidth');
+
+    var paint = false;
+
+    function start(e){
+        paint = true;
+        ctx.beginPath();
+        draw(e)
+    }  
+
+    function end(){
+        paint = false
+    }
+
+    function draw(e){
+        if(!paint) return;
+        ctx.lineWidth = lw.value;
+        ctx.lineCap = "round";
+        
+        ctx.lineTo(e.pageX, e.pageY);
+        ctx.stroke()
+        ctx.beginPath();
+        ctx.moveTo(e.pageX, e.pageY)
+    }
+
+    can.onmousedown = function(e){
+      if(isLine){
+        ctx.beginPath();
+        ctx.moveTo(e.pageX, e.pageY)
+      }
+      else{
+        start(e)
+      }
+    }
+    
+    can.onmouseup = function(e){
+      if(isLine){
+        ctx.lineTo(e.pageX, e.pageY)
+        ctx.stroke();
+        // console.log('mouseup')
+      }
+      else{
+        end()
+      }
+    }
+    
+    can.onmousemove = function(e){
+      if(isLine){
+        // ctx.beginPath();
+        // ctx.moveTo(e.pageX, e.pageY);
+        // ctx.lineTo(xPos, yPos)
+        // ctx.stroke();
+      }
+      else{
+        draw(e)
+      }
+    }
+</script>
 </body>
 </html>
