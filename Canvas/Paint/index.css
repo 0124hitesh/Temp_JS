@@ -1,0 +1,43 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+#can{
+  cursor: crosshair;
+}
+#nav{
+  width: 98.65vw;
+  
+  height: 60px;
+  background-color: rgb(224, 220, 220);
+  border-top: 6px solid rgb(201, 35, 201);
+}
+#nav{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+}
+#shapes{
+  display: flex;
+  flex-direction: row;
+  width: 600px;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 300px;
+}
+#prop{
+  margin-right: 100px;
+  padding: 20px;
+} 
+#col{
+  margin-right: 15px !important;
+}
+.fas, .far{
+  font-size: 30px;
+  margin-left: 10px;
+}
+#shape_fill:hover, #shape_emp:hover{
+  cursor: pointer;
+
+}

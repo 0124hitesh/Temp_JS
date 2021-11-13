@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="./index.css">
+    <title>Paint</title>
+</head>
+<body>
+    <canvas id='can' height="" width=""></canvas><br>
+  <section id="nav">
+    <article id='prop'>
+      <label for="col">Color</label>
+      <input type="color" name="col" id="col">
+
+      <label for="lineWidth">Line Width</label>
+      <input type="range" name="lineWidth" id="lineWidth" min="1" max="10" value="3">
+    </article>
+    
+    <article id='shapes'>
+      <article>
+        <input type="radio" name="shape" value="line" checked="checked" onchange="changeCur1(this)"><i class="fas fa-horizontal-rule"></i><br>Line
+      </article>
+        
+      <article>
+        <input type="radio" name="shape" value="rectangle" onchange="changeCur1(this)"><i class="far fa-rectangle-wide"></i><br>Reactangle
+      </article>
+
+      <article>
+        <input type="radio" name="shape" value="paint" onchange="changeCur1(this)"><i class="fas fa-pen"></i><br>Draw
+      </article>
+
+      <article>
+        <input type="radio" name="shape" value="circle" onchange="changeCur1(this)"><i class="far fa-circle"></i><br>Circle
+      </article>
+
+      <article>
+        <input type="radio" name="shape" value="hexagon" onchange="changeCur1(this)"><i class="far fa-hexagon"></i><br>Hexagon
+      </article>
+        
+      <article>
+        <input type="radio" name="shape" value="erase" onchange="changeCur(this)"><i class="fas fa-eraser"></i><br>Erase
+      </article>
+        
+    </article>
+
+    <i class="fas fa-shapes" id="shape_fill" style="display: none;" onclick="makeEmp()"></i>
+    <i class="far fa-shapes" id="shape_emp"  onclick="makeFill()"></i>
+  </section>
+
+  <script src="./index.js"></script>
+</body>
+</html>
