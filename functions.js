@@ -11,6 +11,12 @@
 //     return x-y;
 // }
 
+// The call() method takes arguments separately.
+// The apply() method takes arguments as an array.
+
+// The apply() method is very handy 
+// if you want to use an array instead of an argument list.
+
 // console.log(sum(1, 2));
 // console.log(sum.call(null, 1, 2))
 // console.log(sum.apply(null, [1, 2]))
@@ -40,34 +46,33 @@
 // -----------------------------------------------------------------------
 // CALLBACK
 
-// function on_End(val){
-//     console.log(val)
-// }
+function on_End(val){
+    console.log(val)
+}
 
-// function x(call_back){
-//     console.log('Function x')
-//     const val = 10;
-//     on_End(val)
-//     call_back(val)
-// }
+function x(call_back, x, y){
+    console.log(x + " " + y)
+    on_End(10)
+    call_back(11)
+}
 
-// x(on_End)
+x(on_End, 12, 13)
 
 // ------------------------------------------------------------------------
 
-function dividend(x){
-    return function(y){
-        if(y === 0){
-            console.log('/0')
-            return;
-        }
+// function dividend(x){
+//     return function(y){
+//         if(y === 0){
+//             console.log('/0')
+//             return;
+//         }
 
-        return x/y;
-    }
-}
+//         return x/y;
+//     }
+// }
 
-console.log( (dividend(12))(1) )
-console.log( (dividend(12))(2) )
+// console.log( (dividend(12))(1) )
+// console.log( (dividend(12))(2) )
 
-const temp = dividend(12);
-console.log(temp(2))
+// const temp = dividend(12);
+// console.log(temp(3))
