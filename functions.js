@@ -60,6 +60,8 @@ x(on_End, 12, 13)
 
 // ------------------------------------------------------------------------
 
+// PARTIAL APPLICATION
+
 // function dividend(x){
 //     return function(y){
 //         if(y === 0){
@@ -76,3 +78,20 @@ x(on_End, 12, 13)
 
 // const temp = dividend(12);
 // console.log(temp(3))
+
+
+
+// CURRYING
+function calculateVolume(length) {
+    return function (breadth) {
+        return function (height) {
+            return length * breadth * height;
+        }
+    }
+}
+
+// function calculateVolume(length, breadth, height) {
+//     return length * breadth * height;
+// }
+
+console.log(calculateVolume(4)(5)(6));
