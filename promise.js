@@ -15,8 +15,9 @@ console.log('start')
 //     console.log('Rejected ', data)
 // })
 
-const p2 = new Promise(function(){
-    const ran = Math.random();
+const p2 = new Promise(function(resolve, reject){
+    // const ran = Math.random();
+    const ran = 0.1;
     console.log('Random = ' + ran)
     if(ran > .5){
         resolve()

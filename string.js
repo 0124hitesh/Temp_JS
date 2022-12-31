@@ -16,8 +16,10 @@ console.log(s.search("z"))
 console.log(s.lastIndexOf("a"))
 
 console.log(s.toLowerCase())
+
+// A new string converted to lowercase according to current locale.
 console.log(s.toLocaleLowerCase())
-console.log(s.toLocaleUpperCase);
+console.log(s.toLocaleUpperCase());
 
 console.log(s.repeat(3))
 
