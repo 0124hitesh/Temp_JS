@@ -20,7 +20,20 @@ const user2 = {
     ln: "stu"
 }
 
-console.log(user.name.call(user1));
-console.log(user.sum.call(null, 1, 2))
-console.log(user.sum.call(user1, 1, 2))
+// Bind
+let temp = user.name.bind(user1);
+console.log(temp())
+
+temp = user.sum.bind(null, 10, 20);
+console.log(temp())
+
+// console.log(user.name.call(user1));
+// console.log(user.sum.call(null, 1, 2))
+// console.log(user.sum.call(user1, 1, 2))
+
 console.log(user.sum.apply(null, [1, 2]))
+console.log(user.sum.apply(this, [1, 2]))
+
+console.log(user.name.apply(user1, [1, 2]))
+console.log(user.name.apply(this, [1, 2]))
+
