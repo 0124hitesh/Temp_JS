@@ -5,6 +5,14 @@
     console.log('IIFE')
 })();
 
+((name) => {
+    console.log(name)
+})("xyz")
+
+!function fun(){
+    console.log("IIFE")
+}()
+
 
 // Hoisting
 m();
